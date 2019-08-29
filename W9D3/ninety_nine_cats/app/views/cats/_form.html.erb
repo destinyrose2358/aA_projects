@@ -1,0 +1,64 @@
+<% is_male = cat.sex == "M" %>
+
+<% if cat.persisted? %>
+  <% method_override = "PATCH" %>
+  <% action = cat_url(cat.id) %>
+  <% button_text = "Update the cat!" %>
+<% else %>
+  <% method_override = "POST" %>
+  <% action = cats_url %>
+  <% button_text = "Add cat!" %>
+<% end %>
+
+<ul>
+    <% cat.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+</ul>
+
+<form action="<%= action %>" method="POST">
+  <input type="hidden" name="_method" value="<%= method_override %>">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="cat[name]" value="<%= cat.name %>"/>
+
+  <br>
+
+  <p>Sex:</p>
+  <div>
+    <input id="m" type="radio" name="cat[sex]" value="M" <%= is_male ? "checked" : "" %> />
+    <label for="m">Male</label>
+  </div>
+  <div>
+    <input id="f" type="radio" name="cat[sex]" value="F" <%= is_male ? "" : "checked" %> />
+    <label for="f">Female</label>
+  </div>
+
+  <br>
+
+  <label for="color">Color:</label>
+  <select id="color" name="cat[color]">
+    <option disabled <%= cat.color ? "" : "selected" %>>-- Please Choose a Color --</option>
+    <% Cat::COLORS.each do |color| %>
+      <option <%= cat.color == color ? "selected" : "" %>><%= color %></option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <label for="birth_date">Birth date:</label>
+  <input id="birth_date" type="date" name="cat[birth_date]" value="<%= cat.birth_date %>" />
+
+  <br>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="cat[description]" ><%= cat.description %></textarea>
+  
+  <br>
+
+  <button><%= button_text %></button>
+
+  <br>
+
+  <a href="<%= action %>">Cancel?</a>
+</form>

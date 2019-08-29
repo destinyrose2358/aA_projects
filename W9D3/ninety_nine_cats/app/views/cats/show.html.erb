@@ -1,0 +1,19 @@
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="2"><%= @cat.name %>'s Stats</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @cat.display_attrs.each do |attr, val| %>
+          <tr>
+              <td><%= attr %>:</td>
+              <td><%= val %></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<a href="<%= edit_cat_url(@cat.id) %>">Edit Cat?</a> |
+<a href="<%= cats_url %>">Back to index</a>
