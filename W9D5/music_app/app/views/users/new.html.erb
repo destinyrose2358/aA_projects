@@ -1,0 +1,11 @@
+<%= content_for :header do %>
+<h1>Register a new Account</h1>
+<% end %>
+
+<ul>
+  <% @user.errors.full_messages.each do |msg|%>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= render "shared/form", user: @user %>

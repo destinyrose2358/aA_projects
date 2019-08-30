@@ -1,0 +1,16 @@
+<% if params[:controller] == "users" %>
+  <% method_override = users_url %>
+  <% button = "Create Account" %>
+<% else %>
+  <% method_override = session_url %>
+  <% button = "Sign into Account" %>
+<% end %>
+
+<form action="<%= method_override %>" method="POST">
+  <%= auth_token %>
+  <label for="email">Email:</label>
+  <input id="email" type="email" name="user[email]" value="<%= user.email %>">
+  <label for="password">Password</label>
+  <input id="password" type="password" name="user[password]"/>
+  <input type="submit" value="Create Account">
+</form>

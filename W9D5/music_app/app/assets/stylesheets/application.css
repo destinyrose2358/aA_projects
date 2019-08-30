@@ -1,0 +1,55 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body, h1, header, p, a, div {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
+
+ .main {
+   width: 80%;
+ }
+
+ .navbar {
+  min-height: 50px;
+  background-color: coral;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-bottom: 5px groove red;
+ }
+
+ .session-button {
+   background-color: darkred;
+   border-radius: 5px;
+   width: 75px;
+   text-align: center;
+ }
+
+ .session-button a {
+   color: beige;
+   text-decoration: none;
+ }
+
+ nav {
+   display: flex;
+   width: 20%;
+   justify-content: space-between;
+ }
