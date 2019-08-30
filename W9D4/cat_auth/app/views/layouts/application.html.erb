@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NinetyNineCats</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <header>
+      <% if logged_in? %>
+      User: <%= current_user.user_name %>
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <%= auth_token %>
+        <button>Log out</button>
+      </form>
+      <% elsif params[:controller] != "sessions" %>
+        <a href="<%= new_session_url %>">Log in</a>
+      <% end %>
+    </header>
+    <%= flash[:error] %>
+    <%= flash[:success] %>
+    <%= flash[:notice] %>
+    <%= yield %>
+  </body>
+</html>
