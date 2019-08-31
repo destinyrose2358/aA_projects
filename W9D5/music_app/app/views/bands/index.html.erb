@@ -1,0 +1,19 @@
+<%= content_for :header do %>
+  <h1>ALL THE BANDS</h1>
+<% end %>
+
+<ul>
+<% @bands.each do |band| %>
+  <li>
+    <a href="<%= band_url(band.id) %>"><%= band.name %> </a>
+    <a href="<%= edit_band_url(band.id) %>">edit name</a>
+    <form action="<%= band_url(band.id) %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <%= auth_token %>
+      <input type="submit" value="delete band">
+    </form>
+  </li>
+<% end %>
+</ul>
+
+<a href="<%= new_band_url %>">Add A Band</a>

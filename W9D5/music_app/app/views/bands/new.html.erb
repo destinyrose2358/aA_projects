@@ -1,0 +1,10 @@
+<%= content_for :header do %>
+  <h1>Add a Band</h1>
+<% end %>
+
+<form action="<%= bands_url %>" method="POST">
+  <%= auth_token %>
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="band[name]">
+  <input type="submit" value="Add Band">
+</form>

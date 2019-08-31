@@ -11,7 +11,10 @@
 
   <body>
     <header class="navbar">
-      <h1>MUSIC APP</h1>
+      <h1><a href="<%= bands_url %>">MUSIC APP</a></h1>
+      <% if signed_in? %>
+      <p>Signed in as <%= current_user.email %></p>
+      <% end %>
       <nav>
         <% if signed_in? %>
         <form action="<%= session_url %>" method="POST">
@@ -33,9 +36,7 @@
     
     <div class="main">
       <%= yield :header %>
-      <% if signed_in? %>
-      <p>Signed in as <%= current_user.email %></p>
-      <% end %>
+      
       <%= flash[:errors] if flash[:errors]%>
       <%= flash[:success] if flash[:success]%>
       <%= flash[:notice] if flash[:notice] %>
