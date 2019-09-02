@@ -1,3 +1,11 @@
 <%= content_for :header do %>
   <h1><%= @band.name %></h1>
 <% end %>
+
+<ul>
+  <% @band.albums.each do |album| %>
+  <li><a href="<%= album_url(album.id) %>"><%= album.title %></a></li>
+  <% end%>
+</ul>
+
+<a href="<%= new_band_album_url(@band.id) %>">Add Album</a>

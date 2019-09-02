@@ -1,0 +1,39 @@
+<%= content_for :header do %>
+  <h1><%= @track.title %></h1>
+<% end %>
+
+<% album_name = Album.find(@track.album_id).title %>
+
+<p>Album: <%= album_name %></p>
+<p>Track Number: <%= @track.ord %></p>
+<p>Track Type: <%= @track.track_type %></p>
+<% if @track.lyrics.length > 0 %>
+<p>Lyrics</p>
+<%= ugly_lyrics(@track.lyrics) %>
+<% end %>
+<br>
+<a href="<%= edit_track_url(@track.id) %>">Edit <%= @track.title %></a>
+<form action="<%= track_url %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <%= auth_token %>
+  <input type="submit" value="Delete <%= @track.title %>">
+</form>
+<a href="<%= album_url(@track.album_id) %>"><%= album_name %></a>
+
+<h1>Notes</h1>
+<ul>
+  <% @track.notes.each do |note| %>
+  <li>
+    <%= render "notes/note", note: note %>
+  </li>
+  
+  <% end %>
+</ul>
+
+
+<h1>Add Note</h1>
+<form action="<%= track_notes_url(@track.id) %>" method="POST">
+  <%= auth_token %>
+  <textarea name="note[body]" cols="30" rows="10"></textarea>
+  <input type="submit" value="Add Comment">
+</form>

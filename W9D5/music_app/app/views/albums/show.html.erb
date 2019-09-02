@@ -1,0 +1,27 @@
+<%= content_for :header do %>
+  <h1><%= @album.title %></h1>
+<% end %>
+
+<% band_name = @album.band.name %>
+
+<p>Band: <%= band_name %></p>
+<p>Year: <%= @album.year %></p>
+<p>Recording Type: <%= @album.recording_type %></p>
+<a href="<%= edit_album_url(@album.id) %>">Edit <%= @album.title %></a>
+<form action="<%= album_url(@album.id) %>" method="POST">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete <%= @album.title %>">
+</form>
+
+<a href="<%= band_url(@album.band_id) %>"><%= band_name %></a>
+
+<ul>
+  <% @album.tracks.each do |track| %>
+  <li>
+    <a href="<%= track_url(track.id) %>"><%= track.title %></a>
+  </li>
+  <% end %>
+</ul>
+
+<a href="<%= new_album_track_url(@album.id) %>">Add Track</a>

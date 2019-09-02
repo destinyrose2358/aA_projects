@@ -1,0 +1,9 @@
+<p><%= note.user.email %></p>
+<p><%= note.body %></p>
+<% if current_user == note.user %>
+<form action="<%= note_url(note.id) %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <%= auth_token %>
+  <input type="submit" value="Delete note">
+</form>
+<% end %>

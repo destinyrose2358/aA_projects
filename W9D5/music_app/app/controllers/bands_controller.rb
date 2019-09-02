@@ -1,5 +1,5 @@
 class BandsController < ApplicationController
-
+  before_action :require_sign_in
 
   def index
     @bands = Band.all
@@ -7,7 +7,7 @@ class BandsController < ApplicationController
   end
 
   def show
-    @band = Band.find(params[:id])
+    @band = Band.includes(:albums).find(params[:id])
     render :show
   end
 

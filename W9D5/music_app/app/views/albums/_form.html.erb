@@ -1,0 +1,50 @@
+<% if ["new", "create"].include?(params[:action]) %>
+  <% method_override = "POST" %>
+  <% button_text = "Add Album" %>
+  <% route = albums_url %>
+<% else %>
+  <% method_override = "PATCH" %>
+  <% button_text = "Edit Album" %>
+  <% route = album_url(album.id) %>
+<% end %>
+
+<ul>
+  <% album.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+
+<form action="<%= route %>" method="POST">
+  <input type="hidden" name="_method" value="<%= method_override %>">
+  <%= auth_token %>
+
+  <label for="title">Title:</label>
+  <input type="text" name="album[title]" id="title" value="<%= album.title %>">
+
+  <br>
+
+  <label for="year">Year:</label>
+  <input type="text" name="album[year]" id="year" value="<%= album.year %>">
+
+  <br>
+
+  <label for="band">Band:</label>
+  <select name="album[band_id" id="band">
+    <% Band.all.each do |band| %>
+    <option value="<%= band.id %>" <%= band.id == album.band_id ? "selected" : "" %> ><%= band.name %></option>
+    <% end %>
+  </select>
+
+  <p>Recording Type:</p>
+  <% Album::RECORDING_TYPES.each do |type| %>
+    <label for="type"><%= type %></label>
+    <input id="type" type="radio" name="album[recording_type]" value="<%= type %>" <%= type == album.recording_type ? "checked" : "" %>>
+  <% end %>
+
+  <br>
+
+  <input type="submit" value="<%= button_text %>">
+
+
+</form>

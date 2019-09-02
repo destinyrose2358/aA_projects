@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+  include ERB::Util
   
   def auth_token
     <<-HTML.html_safe

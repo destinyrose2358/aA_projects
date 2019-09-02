@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in(@user)
       flash[:success] = "Welcome to the party! #{current_user.email}"
-      redirect_to new_user_url
+      redirect_to bands_url
     else
       flash.now[:errors] = "Invalid Account details, see below:"
       render :new

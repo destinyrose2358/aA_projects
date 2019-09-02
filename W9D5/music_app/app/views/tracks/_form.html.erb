@@ -1,0 +1,57 @@
+<% if ["new", "create"].include?(params[:action]) %>
+  <% method_override = "POST" %>
+  <% button_text = "Add Track" %>
+  <% route = tracks_url %>
+  <%  if params[:action] == "new" %>
+    <% previous_url = album_url(params[:album_id]) %>
+  <% else %>
+    <% previous_url = album_url(track.album_id) %>
+  <% end %>
+<% else %>
+  <% method_override = "PATCH" %>
+  <% button_text = "Edit Track" %>
+  <% route = track_url(track.id) %>
+  <% previous_url = track_url(track.id) %>
+<% end %>
+
+<ul>
+  <% track.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<form action="<%= route %>" method="POST">
+  <input type="hidden" name="_method" value="<%= method_override %>">
+  <%= auth_token %>
+
+  <label for="title">Title:</label>
+  <input id="title" type="text" name="track[title]" value="<%= track.title %>">
+  <br>
+
+  <label for="ord">Track Number:</label>
+  <input type="number" min="1" name="track[ord]" value="<%= track.ord %>">
+  <br>
+
+  <label for="album">Album:</label>
+  <select name="track[album_id]" id="album">
+    <% Album.all.each do |album| %>
+    <option value="<%= album.id %>" <%= album.id == track.album_id ? "selected" : "" %>><%= album.title %></option>
+    <% end %>
+  </select>
+  <br>
+
+  <% Track::TRACK_TYPES.each do |type| %>
+  <label for="type"><%= type %></label>
+  <input type="radio" name="track[track_type]" id="type" value="<%= type %>" <%= type == track.track_type ? "checked" : "" %>>
+  <% end %>
+  <br>
+
+  <label for="lyrics">Lyrics:</label>
+  <br>
+  <textarea name="track[lyrics]" id="lyrics" cols="30" rows="10"><%= track.lyrics %></textarea>
+  <br>
+
+  <input type="submit" value="<%= button_text%>">
+
+</form>
+<a href="<%= previous_url %>">Cancel</a>

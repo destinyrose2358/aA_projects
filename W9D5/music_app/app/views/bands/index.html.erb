@@ -6,6 +6,7 @@
 <% @bands.each do |band| %>
   <li>
     <a href="<%= band_url(band.id) %>"><%= band.name %> </a>
+    <br>
     <a href="<%= edit_band_url(band.id) %>">edit name</a>
     <form action="<%= band_url(band.id) %>" method="POST">
       <input type="hidden" name="_method" value="DELETE">
