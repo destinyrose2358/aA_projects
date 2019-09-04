@@ -1,0 +1,44 @@
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: $light-gray 1px solid;
+}
+
+.left-nav > ul,
+.right-nav > ul {
+  display: flex;
+  align-items: center;
+  font-family: $sans-serif;
+}
+
+.left-nav > ul > li {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 15px;
+  padding: 5px;
+}
+
+.right-nav > ul > li {
+  margin: 2px;
+}
+
+.right-nav > ul > li:last-of-type {
+  padding: 4px 5px 3px 5px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.left-nav > ul > li:hover,
+.right-nav > ul > li:last-of-type:hover {
+  background: $lightest-gray;
+}
+
+.left-nav span {
+  margin: 0 10px;
+}
+
+
+.right-nav i {
+  font-size: 16px;
+}

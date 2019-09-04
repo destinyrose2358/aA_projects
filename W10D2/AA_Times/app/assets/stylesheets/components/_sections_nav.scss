@@ -1,0 +1,16 @@
+.sections-links {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-bottom: $light-gray 1px solid;
+  font-family: $sans-serif;
+}
+
+.sections-links li:not(:last-of-type):hover a {
+  background: $light-gray;
+  text-decoration: none;
+}
+
+.sections-links li {
+  margin: 0 10px;
+}
