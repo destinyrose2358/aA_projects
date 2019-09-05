@@ -1,0 +1,60 @@
+.left-header {
+  font-size: 36px;
+  font-family: $serif;
+  font-style: italic;
+}
+
+.main-content li {
+  list-style-type: disc;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.comment-link {
+  color: $blue;
+}
+
+.main-content {
+  margin-top: 20px;
+}
+
+.hr-mid {
+  width: 60%;
+  margin: 10px auto;
+}
+
+.main-content section {
+  margin-bottom: 20px;
+}
+
+.opinion-pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.main-content li a {
+  font-weight: 700;
+}
+
+.main-content form {
+  display: flex;
+  width: 100%;
+}
+
+.main-content input {
+  flex: 1;
+  border: 1px $gray solid;
+  padding-left: 10px;
+}
+
+.side-note{
+  color: $gray;
+  font-size: 12px;
+  font-family: $sans-serif;
+  text-align: center;
+}
