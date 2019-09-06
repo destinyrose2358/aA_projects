@@ -1,0 +1,8 @@
+<h1>Llammit</h1>
+<ul>
+    <% @subs.each do |sub| %>
+    <li><a href="<%= sub_url(sub.id) %>"><%= sub.title %></a></li>
+    <% end %>
+</ul>
+
+<a href="<%= new_sub_url %>">Make New Sub</a>

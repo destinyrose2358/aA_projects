@@ -1,0 +1,15 @@
+<h1>Edit your Sub</h1>
+
+<form action="<%= sub_url(@sub.id) %>" method="POST">
+    <%= override("patch")%>
+    <%= auth_token %>
+    <label>
+        Title:
+        <input type="text" name="sub[title]" value="<%= @sub.title %>">
+    </label>
+    <label>
+        Description:
+        <input type="text" name="sub[description]" value="<%= @sub.description %>">
+    </label>
+    <input type="submit" value="Update">
+</form>

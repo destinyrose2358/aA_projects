@@ -1,0 +1,23 @@
+<h1><a href="<%= post_url(@post.id) %>"><%= @post.title %></a> By <%= @post.author.name %></h1>
+
+<div class="small-border">
+  <label>
+    Content:
+    <%= @post.content %>
+  </label>
+</div>
+<div>
+  <label>
+    Subs
+    <ul>
+      <% @post.subs.each do |sub| %>
+        <li>
+          <a href="<%= sub_url(sub.id) %>"><%= sub.title %></a>
+        </li>
+      <% end %>
+    </ul>
+  </label>
+  <% if current_user.id == @post.author_id %>
+  <a href="<%= edit_post_url(@post.id) %>">Edit this thing!</a>
+  <% end %>
+</div>
