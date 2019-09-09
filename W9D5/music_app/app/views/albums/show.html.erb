@@ -4,7 +4,7 @@
 
 <% band_name = @album.band.name %>
 
-<p>Band: <%= band_name %></p>
+<p>Band: <a href="<%= band_url(@album.band_id) %>"><%= band_name %></a></p>
 <p>Year: <%= @album.year %></p>
 <p>Recording Type: <%= @album.recording_type %></p>
 <a href="<%= edit_album_url(@album.id) %>">Edit <%= @album.title %></a>
@@ -14,14 +14,12 @@
   <input type="submit" value="Delete <%= @album.title %>">
 </form>
 
-<a href="<%= band_url(@album.band_id) %>"><%= band_name %></a>
-
-<ul>
+<section class="tracks-list">
+  <h2>Tracks</h2>
   <% @album.tracks.each do |track| %>
-  <li>
     <a href="<%= track_url(track.id) %>"><%= track.title %></a>
-  </li>
   <% end %>
-</ul>
+</section>
+  
 
 <a href="<%= new_album_track_url(@album.id) %>">Add Track</a>

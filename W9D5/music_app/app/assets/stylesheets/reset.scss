@@ -1,0 +1,22 @@
+body, h1, h2, header, div, section, p, ul, ol, li, a {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+  vertical-align: baseline;
+}
+
+img {
+  width: 100;
+  height: auto;
+}
+
+ul, ol {
+  list-style: none;
+}

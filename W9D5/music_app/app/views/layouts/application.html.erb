@@ -12,11 +12,9 @@
   <body>
     <header class="navbar">
       <h1><a href="<%= bands_url %>">MUSIC APP</a></h1>
-      <% if signed_in? %>
-      <p>Signed in as <%= current_user.email %></p>
-      <% end %>
       <nav>
         <% if signed_in? %>
+        <p>Signed in as <%= current_user.email %></p>
         <form action="<%= session_url %>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <%= auth_token %>
