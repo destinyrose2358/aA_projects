@@ -1,0 +1,28 @@
+/* PHASE 3: Layout */
+
+.content {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.content-main {
+  width: 70%;
+  background: white;
+  float: left;
+  min-height: 200px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.content-sidebar {
+  width: 30%;
+  background: white;
+  float: left;
+  min-height: 200px;
+  border: 1px solid black;
+  border-top: 0;
+  box-sizing: border-box;
+  padding: 20px;
+}
