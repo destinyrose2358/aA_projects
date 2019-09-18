@@ -1,0 +1,55 @@
+.toh {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.tower {
+  list-style: none;
+  display: flex;
+  flex-flow: column-reverse;
+  align-items: center;
+  border-bottom: black 10px solid;
+  width: 150px;
+  margin-right: 10px;
+  padding: 0;
+}
+
+.tower:hover {
+  border-color: blue;
+}
+
+.selected {
+  border-color: red;
+}
+
+.tower li {
+  height: 50px;
+  margin: 5px 0;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 60px;
+}
+
+.disk-1 {
+  background-color: yellow;
+  width: 50%;
+  border: 2px solid #ee0;
+}
+
+.disk-2 {
+  background-color: red;
+  width: 75%;
+  border: 2px solid #e00;
+}
+
+.disk-3 {
+  background-color: blue;
+  width: 100%;
+  border: 2px solid #00e;
+}
