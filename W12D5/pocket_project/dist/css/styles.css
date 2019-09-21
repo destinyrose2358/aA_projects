@@ -1,0 +1,102 @@
+
+html {
+  box-sizing: border-box;
+  background: #A9DBB8;
+  text-align: center;
+  font-family: 'helvetica neue';
+}
+
+h1 {
+  color: #F0F2EF;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.welcome {
+  font-weight: 400;
+  margin-top: 100px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.drop-down-dog-nav {
+  width: 300px;
+  margin: 0 auto;
+  background: beige;
+  border: 2px solid #99cba8;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.dog-link {
+  display: none;
+  
+}
+
+.dog-link a {
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.dog-link:hover a {
+  background-color: #d5d5bc;
+  padding: 7px;
+}
+
+.visible {
+  display: block;
+}
+
+.clock-holder {
+  padding: 10px 5px;
+  background-color: #79ab87;
+  border: 2px solid #222222;
+  width: 200px;
+  margin: 5px auto;
+  margin-top: 10px;
+}
+
+/*  Phase 4: Slide In & Out Classes */
+
+.align-left {
+  float: left;
+  margin-right: 20px;
+}
+
+.align-right {
+  float: right;
+  margin-left: 20px;
+}
+
+.slide {
+  opacity: 0;
+  transition: all .5s;
+}
+
+.align-left.slide {
+  transform: translateX(-30%) scale(0.95);
+}
+
+.align-right.slide {
+  transform: translateX(30%) scale(0.95);
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
+
+.slide-and-scroll {
+  margin: 0 auto;
+  width: 50%;
+  background: beige;
+}
