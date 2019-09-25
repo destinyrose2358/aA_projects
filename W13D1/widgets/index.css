@@ -14,28 +14,34 @@
 }
 
 .tabs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 10px 1fr;
   width: 40%;
   height: 200px;
-  
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.tabs ul {
+  display: flex;
 }
 
 .tab {
-  height: 100%;
-  width: 100%;
-  border: 1px black solid;
-}
-
-.tab section {
-  display: none;
-  grid-row: 2;
-  grid-column: 1 / 4;
   border: 1px black solid;
   width: 100%;
-}
-
-.active + section { 
   display: block;
+  box-sizing: border-box;
+}
+
+.tabs section {
+  border: 1px black solid;
+  border-top: 0;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active { 
+  font-weight: 700;
 }

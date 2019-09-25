@@ -13,19 +13,24 @@ export default class Tabs extends React.Component {
   }
 
   render() {
-    let lis = ["watever", "Shmwatever", "waterver"].map((ele, i) => {
-      let clsNm = (this.state.selected === i ? "active" : "");
+    let { tabsList } = this.props;
+    let { selected } = this.state;
+    let lis = tabsList.map((ele, i) => {
+      let clsNm = (this.state.selected === i ? "tab active" : "tab");
       return (
-        <li className="tab" key={i}>
-          <h1 className={ clsNm } index={ i } onClick={ this.select }>{ ele }</h1>
-          <section>{ele}</section>
+        <li className={ clsNm } key={ i } onClick={ this.select } index={ i }>
+          <h1  >{ ele }</h1>
         </li>
       );
     });
     return (
-      <ul className="tabs">
-        { lis }
-      </ul>
+      <div className="tabs">
+        <ul>
+          { lis }
+        </ul>
+        <section>{ tabsList[selected] }</section>
+      </div>
+        
     )
   }
 }

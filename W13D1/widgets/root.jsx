@@ -5,6 +5,6 @@ import Tabs from "./frontend/tabs";
 export default () => (
   <div>
     <Clock />
-    <Tabs />
+    <Tabs tabsList={["watever", "Shmwatever", "waterver"]} />
   </div>
 )
