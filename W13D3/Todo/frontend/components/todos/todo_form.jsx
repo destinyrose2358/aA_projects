@@ -12,13 +12,14 @@ export default class TodoForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  update(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+  update(field) {
+    return (e) => {this.setState({
+      [field]: event.target.value
+    })};
   }
 
   handleSubmit(event) {
+    debugger;
     event.preventDefault();
     const todo = Object.assign({}, this.state, { id: uniqueId() });
     this.props.receiveTodo(todo);
@@ -32,9 +33,9 @@ export default class TodoForm extends React.Component {
     return (
       <form onSubmit={ this.handleSubmit }>
         <label htmlFor="title">Title</label>
-        <input id="title" onChange={ this.update } type="text" value={ this.state.title }/>
+        <input id="title" onChange={ this.update("title") } type="text" value={ this.state.title }/>
         <label htmlFor="body">Body</label>
-        <textarea className="todo-form-body" id="body" onChange={ this.update } cols="30" rows="10" value={ this.state.body }></textarea>
+        <textarea className="todo-form-body" id="body" onChange={ this.update("body") } cols="30" rows="10" value={ this.state.body }></textarea>
         <button>Add Todo</button>
       </form>
     )

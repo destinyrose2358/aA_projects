@@ -4,6 +4,7 @@ import TodoForm from "./todo_form";
 
 export default class TodoList extends React.Component {
   render() {
+    debugger;
     let TodoLis = this.props.todos.map((todo) => {
       return <TodoListItem key={ todo.id } todo={ todo } />; //<li key={ todo.id }>{ todo.title }</li>;
     });
