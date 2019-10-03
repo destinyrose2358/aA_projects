@@ -1,0 +1,1845 @@
+Started GET "/" for ::1 at 2019-10-02 13:06:51 -0700
+
+PG::ConnectionBad - FATAL:  database "bench_bnb_development" does not exist
+:
+
+Started POST "/__better_errors/431752991eb9a1a0/variables" for ::1 at 2019-10-02 13:06:52 -0700
+  [1m[35m (380.7ms)[0m  [1m[35mCREATE DATABASE "bench_bnb_development" ENCODING = 'unicode'[0m
+  [1m[35m (286.7ms)[0m  [1m[35mCREATE DATABASE "bench_bnb_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2019-10-02 13:07:44 -0700
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/7dcf55b041ee78f7/variables" for ::1 at 2019-10-02 13:07:45 -0700
+  [1m[35m (17.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6802361601607853190)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20191002195000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191002195000"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-02 20:08:48.154958"], ["updated_at", "2019-10-02 20:08:48.154958"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6802361601607853190)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2019-10-02 13:08:51 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.5ms | Allocations: 465)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 2932)
+
+
+Started GET "/" for ::1 at 2019-10-02 13:09:43 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.7ms | Allocations: 195)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 956)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "bee"], ["password_digest", "$2a$12$CKG3zN4wNNoQ2JCqZGr1vOlch0gzGaeLPfcv97VPAtk/ume6VuxqO"], ["session_token", "sjSC5hCqymQzHxvrNKPbc9ms"], ["created_at", "2019-10-02 20:35:09.806108"], ["updated_at", "2019-10-02 20:35:09.806108"]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "YPSHojEyetyyvyAR1RWtUray"], ["updated_at", "2019-10-02 20:37:13.789916"], ["id", 1]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bee"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bee"], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2019-10-02 14:19:48 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.9ms | Allocations: 200)
+Completed 200 OK in 13ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 5989)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:20:05 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 8)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 284)
+
+
+Started GET "/users/new" for ::1 at 2019-10-02 14:20:21 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users/new"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/users/new" for ::1 at 2019-10-02 14:20:35 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"new"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2367)
+
+
+
+Bootsnap::LoadPathCache::FallbackScan - :
+  app/models/user.rb:2:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/application_controller.rb:5:in `current_user'
+  app/controllers/api/users_controller.rb:67:in `set_user'
+
+Started POST "/__better_errors/63bfc48933bbb12e/variables" for ::1 at 2019-10-02 14:20:35 -0700
+Started GET "/api/users/create" for ::1 at 2019-10-02 14:21:03 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.8ms | Allocations: 2858)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.3ms | Allocations: 12454)
+
+
+
+ActionView::MissingTemplate - Missing partial users/_users with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/5aeaa5059da607c6/variables" for ::1 at 2019-10-02 14:21:03 -0700
+Started GET "/api/users/create" for ::1 at 2019-10-02 14:21:44 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.5ms | Allocations: 2912)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms | Allocations: 5367)
+
+
+
+ActionView::MissingTemplate - Missing partial users/_users with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/fdea6872f8d9196d/variables" for ::1 at 2019-10-02 14:21:44 -0700
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:22:48 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.8ms | Allocations: 201)
+Completed 200 OK in 15ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4684)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:22:59 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.5ms | Allocations: 466)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 2539)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:23:01 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.7ms | Allocations: 442)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 1213)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:23:14 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 8)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 284)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:23:46 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 280)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:23:50 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.4ms | Allocations: 194)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 782)
+
+
+Started GET "/" for ::1 at 2019-10-02 14:24:41 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 281)
+
+
+Started GET "/" for ::1 at 2019-10-02 14:24:55 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 8)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 283)
+
+
+Started GET "/api/users/" for ::1 at 2019-10-02 14:25:06 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/api/users"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/users/%60" for ::1 at 2019-10-02 14:25:26 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"`"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 1.7ms | Allocations: 2877)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 4.2ms | Allocations: 7337)
+
+
+
+ActionView::MissingTemplate - Missing partial users/_users with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/b95a0d4d4198a9cb/variables" for ::1 at 2019-10-02 14:25:26 -0700
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:25:28 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (Duration: 0.9ms | Allocations: 2555)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 3837)
+
+
+
+ActionView::MissingTemplate - Missing partial users/_users with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/e71c495a27bb402a/variables" for ::1 at 2019-10-02 14:25:28 -0700
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:25:54 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered users/_user.json.jbuilder (Duration: 976.5ms | Allocations: 383212)
+  Rendered api/users/show.json.jbuilder (Duration: 977.3ms | Allocations: 383533)
+Completed 500 Internal Server Error in 983ms (ActiveRecord: 0.7ms | Allocations: 385996)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x00007f74ed7f7330>:0x00007f74ed7f5300>
+Did you mean?  @user:
+  app/views/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/8a9907920645d5e6/variables" for ::1 at 2019-10-02 14:25:56 -0700
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:26:13 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered users/_user.json.jbuilder (Duration: 1139.3ms | Allocations: 538709)
+  Rendered api/users/show.json.jbuilder (Duration: 1141.0ms | Allocations: 539029)
+Completed 500 Internal Server Error in 1152ms (ActiveRecord: 0.5ms | Allocations: 541479)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x0000559c8f290b18>:0x0000559c8f2a05e0>
+Did you mean?  @user:
+  app/views/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/12dafa82f3f370ea/variables" for ::1 at 2019-10-02 14:26:15 -0700
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:26:25 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/bee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.7ms | Allocations: 201)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 778)
+
+
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:26:29 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered users/_user.json.jbuilder (Duration: 1079.3ms | Allocations: 538642)
+  Rendered api/users/show.json.jbuilder (Duration: 1079.7ms | Allocations: 538754)
+Completed 500 Internal Server Error in 1084ms (ActiveRecord: 0.5ms | Allocations: 540025)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x0000559c8f290b18>:0x00007f74ed847970>
+Did you mean?  @user:
+  app/views/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/29ae839544ebad22/variables" for ::1 at 2019-10-02 14:26:31 -0700
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:26:50 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered users/_user.json.jbuilder (Duration: 5.6ms | Allocations: 3317)
+  Rendered api/users/show.json.jbuilder (Duration: 7.3ms | Allocations: 3638)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms | Allocations: 6085)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/8cbcab0aecc720cb/variables" for ::1 at 2019-10-02 14:26:51 -0700
+Started POST "/api/users/" for 127.0.0.1 at 2019-10-02 14:28:45 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"flerpen", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 935)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:29:09 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 2.1ms | Allocations: 3287)
+  Rendered api/users/show.json.jbuilder (Duration: 2.8ms | Allocations: 3610)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 6069)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/cd0c0a65e6fc654a/variables" for ::1 at 2019-10-02 14:29:09 -0700
+Started GET "/api/users/1" for 127.0.0.1 at 2019-10-02 14:30:52 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 2.4ms | Allocations: 3216)
+  Rendered api/users/show.json.jbuilder (Duration: 3.1ms | Allocations: 3330)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 4488)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/5bfffbb1dd9eefa2/variables" for 127.0.0.1 at 2019-10-02 14:30:53 -0700
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:31:40 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 6.0ms | Allocations: 3173)
+  Rendered api/users/show.json.jbuilder (Duration: 6.7ms | Allocations: 3287)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.0ms | Allocations: 5891)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/9335f40d355fb9b0/variables" for ::1 at 2019-10-02 14:31:41 -0700
+Started GET "/api/users/1" for 127.0.0.1 at 2019-10-02 14:32:23 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 1162.9ms | Allocations: 388125)
+  Rendered api/users/show.json.jbuilder (Duration: 1165.9ms | Allocations: 388650)
+Completed 500 Internal Server Error in 1172ms (ActiveRecord: 0.3ms | Allocations: 390991)
+
+
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:32:24 -0700
+
+NameError - undefined local variable or method `user' for #<#<Class:0x0000559c8f0954d0>:0x0000559c8f0a50b0>
+Did you mean?  @user:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+Started POST "/__better_errors/b5b8239f7a996b1e/variables" for 127.0.0.1 at 2019-10-02 14:32:25 -0700
+  Rendered api/users/_user.json.jbuilder (Duration: 1883.9ms | Allocations: 727030)
+  Rendered api/users/show.json.jbuilder (Duration: 1884.7ms | Allocations: 727153)
+Completed 500 Internal Server Error in 1889ms (ActiveRecord: 0.6ms | Allocations: 728528)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x0000559c8f0954d0>:0x00007f74f0501e70>
+Did you mean?  @user:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/d0f90c7e087dc197/variables" for ::1 at 2019-10-02 14:32:27 -0700
+Started GET "/api/users/1" for 127.0.0.1 at 2019-10-02 14:32:36 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 1494.6ms | Allocations: 538486)
+  Rendered api/users/show.json.jbuilder (Duration: 1495.4ms | Allocations: 538806)
+Completed 500 Internal Server Error in 1504ms (ActiveRecord: 0.6ms | Allocations: 541145)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x00007f74f8603de8>:0x00007f74f8602470>
+Did you mean?  @user:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/94e9bac4f7dbeb6b/variables" for 127.0.0.1 at 2019-10-02 14:32:39 -0700
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:33:49 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 7.5ms | Allocations: 3285)
+  Rendered api/users/show.json.jbuilder (Duration: 11.1ms | Allocations: 3607)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms | Allocations: 6054)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/cbd0daf7a5af25ef/variables" for ::1 at 2019-10-02 14:33:49 -0700
+Started GET "/api/users/1" for 127.0.0.1 at 2019-10-02 14:34:10 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 3.7ms | Allocations: 3216)
+  Rendered api/users/show.json.jbuilder (Duration: 4.2ms | Allocations: 3330)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.6ms | Allocations: 4488)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/users/show.json.jbuilder:1
+
+Started POST "/__better_errors/b8b573d92e2b5abb/variables" for 127.0.0.1 at 2019-10-02 14:34:10 -0700
+Started POST "/__better_errors/cbd0daf7a5af25ef/eval" for ::1 at 2019-10-02 14:34:16 -0700
+Started POST "/__better_errors/cbd0daf7a5af25ef/eval" for ::1 at 2019-10-02 14:34:20 -0700
+Started GET "/api/users/1" for 127.0.0.1 at 2019-10-02 14:35:08 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:13:in `show'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 4.5ms | Allocations: 4916)
+
+
+
+PG::DatatypeMismatch - ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "users".* FROM "users" WHERE (1) LIMIT $1
+                                             ^
+:
+  app/controllers/api/users_controller.rb:13:in `show'
+
+Started POST "/__better_errors/64f31c79e67ba7ee/variables" for 127.0.0.1 at 2019-10-02 14:35:09 -0700
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:35:09 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (1) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:13:in `show'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.4ms | Allocations: 3798)
+
+
+
+PG::DatatypeMismatch - ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "users".* FROM "users" WHERE (1) LIMIT $1
+                                             ^
+:
+  app/controllers/api/users_controller.rb:13:in `show'
+
+Started POST "/__better_errors/359d5e7503b3da62/variables" for ::1 at 2019-10-02 14:35:09 -0700
+Started GET "/api/users/1" for 127.0.0.1 at 2019-10-02 14:35:25 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:13:in `show'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 0.1ms | Allocations: 17)
+  Rendered api/users/show.json.jbuilder (Duration: 0.7ms | Allocations: 168)
+Completed 200 OK in 21ms (Views: 1.7ms | ActiveRecord: 4.9ms | Allocations: 7324)
+
+
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:35:26 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:13:in `show'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 0.1ms | Allocations: 14)
+  Rendered api/users/show.json.jbuilder (Duration: 0.5ms | Allocations: 162)
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 1.0ms | Allocations: 2012)
+
+
+Started GET "/api/users/" for ::1 at 2019-10-02 14:35:32 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/api/users"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/users/1" for ::1 at 2019-10-02 14:35:36 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:13:in `show'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 0.1ms | Allocations: 14)
+  Rendered api/users/show.json.jbuilder (Duration: 0.4ms | Allocations: 162)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 2011)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:42:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.2ms | Allocations: 90)
+[Webpacker] Compiling…
+Started GET "/" for ::1 at 2019-10-02 14:42:49 -0700
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 13435ms (Views: 13434.8ms | ActiveRecord: 0.0ms | Allocations: 1644317)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:42:59 -0700
+Processing by StaticPagesController#root as HTML
+Started GET "/api/users/1" for 127.0.0.1 at 2019-10-02 14:42:59 -0700
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+Processing by StaticPagesController#root as HTML
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:13:in `show'
+Completed 200 OK in 45ms (Views: 44.4ms | ActiveRecord: 0.0ms | Allocations: 31849)
+
+
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 0.4ms | Allocations: 84)
+  Rendered api/users/show.json.jbuilder (Duration: 1.5ms | Allocations: 441)
+Completed 200 OK in 32ms (Views: 4.6ms | ActiveRecord: 13.4ms | Allocations: 23154)
+
+
+Completed 200 OK in 39ms (Views: 39.0ms | ActiveRecord: 0.0ms | Allocations: 28743)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 14:43:00 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 13955)
+
+
+Started GET "/" for ::1 at 2019-10-02 14:43:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.0ms | Allocations: 14129)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 14:43:33 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"flerp", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "flerp"], ["password_digest", "$2a$12$SmzBEz7ptKoQT8hI6Bholu2IFtafitVbteDgWEvN2XmvxGI.PsAJ6"], ["session_token", "xBCyC8T55AECDomh9BATJSXD"], ["created_at", "2019-10-02 21:43:33.700205"], ["updated_at", "2019-10-02 21:43:33.700205"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 403ms (ActiveRecord: 8.2ms | Allocations: 60291)
+
+
+
+NoMethodError - undefined method `user_url' for #<Api::UsersController:0x0000559c8f0df3c8>
+Did you mean?  user_params:
+  app/controllers/api/users_controller.rb:33:in `block (2 levels) in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 14:43:47 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"users"=>{"username"=>"flerp", "password"=>"[FILTERED]"}}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 1955)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/api/users_controller.rb:72:in `user_params'
+  app/controllers/api/users_controller.rb:28:in `create'
+
+Started GET "/" for ::1 at 2019-10-02 14:43:53 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3526ms (Views: 3525.2ms | ActiveRecord: 0.0ms | Allocations: 16588)
+
+
+Started GET "/" for ::1 at 2019-10-02 14:43:59 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3515ms (Views: 3515.0ms | ActiveRecord: 0.0ms | Allocations: 16594)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 14:44:47 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"flerpen", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "flerpen"], ["password_digest", "$2a$12$ff7Ag.nrp0cUcE8mGGPNcOCrS501mStGSgVN4Ky3DQ7HrtUct9pUK"], ["session_token", "PnkEex5BrviQmNaDVrX855RB"], ["created_at", "2019-10-02 21:44:48.231315"], ["updated_at", "2019-10-02 21:44:48.231315"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 431ms (ActiveRecord: 13.4ms | Allocations: 63905)
+
+
+
+NoMethodError - undefined method `user_url' for #<Api::UsersController:0x00007f74fab52a90>
+Did you mean?  user_params:
+  app/controllers/api/users_controller.rb:33:in `block (2 levels) in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+Started GET "/" for ::1 at 2019-10-02 15:02:18 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 14128)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 15:02:28 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"flerpen", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "flerpen"], ["password_digest", "$2a$12$orOpl1P6QmrCBhY/OVNB/.UImqMwJId0PK44/hFjmIEgSd5oyMdNO"], ["session_token", "GLf9FBSU3B5c5MG8ttzhiAEW"], ["created_at", "2019-10-02 22:02:29.135972"], ["updated_at", "2019-10-02 22:02:29.135972"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 246ms (ActiveRecord: 3.4ms | Allocations: 5207)
+
+
+
+PG::UniqueViolation - ERROR:  duplicate key value violates unique constraint "index_users_on_username"
+DETAIL:  Key (username)=(flerpen) already exists.
+:
+  app/controllers/api/users_controller.rb:31:in `block in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 15:04:01 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"flerpen", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "flerpen"], ["password_digest", "$2a$12$dHoYBVIRf.3VvHYxRZeKL.90ZYxnmbrNpnKdCzqllFe0SfpAcrS5y"], ["session_token", "ySEFCJ5vXxgNerq1ArkmBuh6"], ["created_at", "2019-10-02 22:04:01.337652"], ["updated_at", "2019-10-02 22:04:01.337652"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 250ms (ActiveRecord: 2.3ms | Allocations: 5200)
+
+
+
+PG::UniqueViolation - ERROR:  duplicate key value violates unique constraint "index_users_on_username"
+DETAIL:  Key (username)=(flerpen) already exists.
+:
+  app/controllers/api/users_controller.rb:31:in `block in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+Started GET "/" for ::1 at 2019-10-02 15:04:51 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3619ms (Views: 3618.2ms | ActiveRecord: 0.0ms | Allocations: 16543)
+
+
+Started GET "/" for ::1 at 2019-10-02 15:05:15 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3522ms (Views: 3521.6ms | ActiveRecord: 0.0ms | Allocations: 16590)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 15:07:14 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"flerpen", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "flerpen"], ["password_digest", "$2a$12$D8kVpKf9/QT2uBK0FMWgMOTuQWWRSUteydPvbMw1.AyENX2uiT0o6"], ["session_token", "D3Y6gvsjZUKbziXUSTA3nUgv"], ["created_at", "2019-10-02 22:07:14.515801"], ["updated_at", "2019-10-02 22:07:14.515801"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 264ms (ActiveRecord: 7.3ms | Allocations: 10229)
+
+
+
+PG::UniqueViolation - ERROR:  duplicate key value violates unique constraint "index_users_on_username"
+DETAIL:  Key (username)=(flerpen) already exists.
+:
+  app/controllers/api/users_controller.rb:31:in `block in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+Started GET "/" for ::1 at 2019-10-02 15:07:19 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 14295)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 15:07:44 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"flerpen", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "flerpen"], ["password_digest", "$2a$12$H.Zkg5i/xGoim7TlGZClWOV0pVQX0I/oV5tUv1bs5MD4sOntguSvO"], ["session_token", "UpCbxE6Mkx6Rx2qG6Y6iXQ1A"], ["created_at", "2019-10-02 22:07:44.795720"], ["updated_at", "2019-10-02 22:07:44.795720"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (2.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 18.1ms | Allocations: 10252)
+
+
+
+PG::UniqueViolation - ERROR:  duplicate key value violates unique constraint "index_users_on_username"
+DETAIL:  Key (username)=(flerpen) already exists.
+:
+  app/controllers/api/users_controller.rb:31:in `block in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 15:09:00 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"flerpen", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :password_confirmation[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "flerpen"], ["password_digest", "$2a$12$pJ6qbLkn2wAapWaRiiCF5OKc2GyTcDKiv88R8YYlcH5MuIQ0ZPuBy"], ["session_token", "gdXJ9yHvZJJrk9TihUXT9qFQ"], ["created_at", "2019-10-02 22:09:00.605514"], ["updated_at", "2019-10-02 22:09:00.605514"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 252ms (ActiveRecord: 7.4ms | Allocations: 10158)
+
+
+
+PG::UniqueViolation - ERROR:  duplicate key value violates unique constraint "index_users_on_username"
+DETAIL:  Key (username)=(flerpen) already exists.
+:
+  app/controllers/api/users_controller.rb:31:in `block in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+Started POST "/api/users" for ::1 at 2019-10-02 15:09:42 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"beeee", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "beeee"], ["password_digest", "$2a$12$G.viGbgJ/6/5uMjOqfyvxu/XCkTPQvhHGpDxCXLPV6GOunGVhK7FK"], ["session_token", "dmUEWNwiVFDiVjnyLNnpBx8o"], ["created_at", "2019-10-02 22:09:43.094071"], ["updated_at", "2019-10-02 22:09:43.094071"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 377ms (ActiveRecord: 2.3ms | Allocations: 62311)
+
+
+
+NoMethodError - undefined method `user_url' for #<Api::UsersController:0x00007f74fab83de8>
+Did you mean?  user_params:
+  app/controllers/api/users_controller.rb:33:in `block (2 levels) in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 15:12:57 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Fler_Ger", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Fler_Ger"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Fler_Ger"], ["password_digest", "$2a$12$vn9RJxWdzUAaeAHAyv/LDeGf8HYyO2m7V3lGEN.TJXLL/KyIFQCkW"], ["session_token", "PpRN61YwjRFvtQZkUep83XpG"], ["created_at", "2019-10-02 22:12:57.837272"], ["updated_at", "2019-10-02 22:12:57.837272"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `block in create'
+Completed 500 Internal Server Error in 376ms (ActiveRecord: 4.9ms | Allocations: 73043)
+
+
+
+NoMethodError - undefined method `user_url' for #<Api::UsersController:0x00007f74faf8b210>
+Did you mean?  user_params:
+  app/controllers/api/users_controller.rb:33:in `block (2 levels) in create'
+  app/controllers/api/users_controller.rb:30:in `create'
+
+Started GET "/" for ::1 at 2019-10-02 15:16:43 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 29ms (Views: 28.9ms | ActiveRecord: 0.0ms | Allocations: 14260)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 15:20:11 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bee_Rad"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Bee_Rad"], ["password_digest", "$2a$12$EntLBA6iLovrsoecncFfqezJu7ZuW3LH5uWWR1CKx60AKh2vbAiT2"], ["session_token", "EGin3o9cFua4K7nfDbuXRZU8"], ["created_at", "2019-10-02 22:20:11.547234"], ["updated_at", "2019-10-02 22:20:11.547234"]]
+  ↳ app/controllers/api/users_controller.rb:30:in `create'
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:30:in `create'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 0.1ms | Allocations: 12)
+  Rendered api/users/show.json.jbuilder (Duration: 0.4ms | Allocations: 160)
+Completed 201 Created in 264ms (Views: 1.4ms | ActiveRecord: 15.7ms | Allocations: 9363)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 15:23:37 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bee_Rad"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:30:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 268ms (Views: 0.2ms | ActiveRecord: 6.2ms | Allocations: 12356)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 15:28:12 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bee_Rad"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:3:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Bee_Rad"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "qHyftaKYA596RHLbRf3xC8X6"], ["updated_at", "2019-10-02 22:28:12.825860"], ["id", 11]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+Completed 500 Internal Server Error in 394ms (ActiveRecord: 4.8ms | Allocations: 68497)
+
+
+
+NoMethodError - undefined method `user_url' for #<Api::SessionsController:0x00007f74fab718c8>
+Did you mean?  user_params:
+  app/controllers/api/sessions_controller.rb:6:in `create'
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 15:28:28 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bee_Rad"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:3:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Bee_Rad"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "oX5eZhj6n3wxBFiBu63oyrwC"], ["updated_at", "2019-10-02 22:28:28.569051"], ["id", 11]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 11.9ms | Allocations: 11468)
+
+
+
+ActionView::MissingTemplate - Missing template api/sessions/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/controllers/api/sessions_controller.rb:6:in `create'
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 15:29:47 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bee_Rad"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:3:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Bee_Rad"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "GRdyikv1nJzkzETx3kD51N2i"], ["updated_at", "2019-10-02 22:29:48.299044"], ["id", 11]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  Rendering api/sessions/create.json.jbuilder
+  Rendered api/sessions/create.json.jbuilder (Duration: 1.6ms | Allocations: 2834)
+Completed 500 Internal Server Error in 269ms (ActiveRecord: 14.0ms | Allocations: 13188)
+
+
+
+ActionView::MissingTemplate - Missing partial api/users/_users with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/views/api/sessions/create.json.jbuilder:1
+  app/controllers/api/sessions_controller.rb:6:in `create'
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 15:30:20 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bee_Rad"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:3:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Bee_Rad"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "Tgq1AUkTSqTdv4KzuRwEcBYD"], ["updated_at", "2019-10-02 22:30:21.084354"], ["id", 11]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  Rendering api/sessions/create.json.jbuilder
+  Rendered api/sessions/create.json.jbuilder (Duration: 1.2ms | Allocations: 2522)
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 8.5ms | Allocations: 7184)
+
+
+
+ActionView::MissingTemplate - Missing partial api/users/_users with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/views/api/sessions/create.json.jbuilder:1
+  app/controllers/api/sessions_controller.rb:6:in `create'
+
+Started GET "/" for ::1 at 2019-10-02 15:33:47 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 4105ms (Views: 4104.7ms | ActiveRecord: 0.0ms | Allocations: 17464)
+
+
+Started POST "/api/users" for ::1 at 2019-10-02 15:34:36 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 953)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/users" for ::1 at 2019-10-02 15:36:00 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 938)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 15:36:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 28ms (Views: 27.4ms | ActiveRecord: 0.0ms | Allocations: 13927)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 15:36:19 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 937)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 15:39:39 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 940)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 15:39:52 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 7700ms (Views: 7699.6ms | ActiveRecord: 0.0ms | Allocations: 14771)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 15:40:17 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.6ms | Allocations: 351)
+[Webpacker] Compiling…
+Started GET "/" for ::1 at 2019-10-02 15:40:19 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 9335ms (Views: 9333.5ms | ActiveRecord: 0.0ms | Allocations: 1657139)
+
+
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 8423ms (Views: 8423.0ms | ActiveRecord: 0.0ms | Allocations: 27967)
+
+
+Started GET "/" for ::1 at 2019-10-02 15:40:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 4202ms (Views: 4201.3ms | ActiveRecord: 0.0ms | Allocations: 16715)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 15:40:58 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 14137)
+
+
+Started GET "/" for ::1 at 2019-10-02 15:41:02 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3920ms (Views: 3919.1ms | ActiveRecord: 0.0ms | Allocations: 16761)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 15:41:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 14142)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 15:41:15 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 993)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/users" for ::1 at 2019-10-02 15:41:16 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 995)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2019-10-02 15:43:18 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.7ms | Allocations: 351)
+Completed 200 OK in 1136ms (Views: 1134.3ms | ActiveRecord: 0.0ms | Allocations: 1607502)
+
+
+Started POST "/api/users" for ::1 at 2019-10-02 15:43:26 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 1007)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 15:50:27 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.5ms | Allocations: 351)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 4711ms (Views: 4709.1ms | ActiveRecord: 0.0ms | Allocations: 1609676)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 15:50:37 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 993)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2019-10-02 15:56:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3685ms (Views: 3684.9ms | ActiveRecord: 0.0ms | Allocations: 16724)
+
+
+Started POST "/api/users?&authenticity_token=B8twq68+hx9N6XS2Te/dlzItMpP25cY66Shray3MlUGTOY7X8EiKyIhgRkMzBCivAAq5CyngaO7yYyhavqUhpA==" for ::1 at 2019-10-02 15:56:10 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}, "authenticity_token"=>"B8twq68 hx9N6XS2Te/dlzItMpP25cY66Shray3MlUGTOY7X8EiKyIhgRkMzBCivAAq5CyngaO7yYyhavqUhpA=="}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 1850)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2019-10-02 15:59:31 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3702ms (Views: 3701.5ms | ActiveRecord: 0.0ms | Allocations: 16760)
+
+
+Started GET "/" for ::1 at 2019-10-02 16:00:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3710ms (Views: 3709.9ms | ActiveRecord: 0.0ms | Allocations: 16754)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:03:27 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3801ms (Views: 3800.7ms | ActiveRecord: 0.0ms | Allocations: 16603)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 16:03:32 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 979)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2019-10-02 16:06:36 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.6ms | Allocations: 351)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 4887ms (Views: 4885.5ms | ActiveRecord: 0.0ms | Allocations: 1627245)
+
+
+Started POST "/api/users?&authenticity_token=CQnvNe4YDkAJTGpkJk03WlR7Vz0Aodx3csVRSPMn09/j7Vb5CbjjNcK68y+5D6TqRsJLhQ8zP+j5O1SxjvLnow==" for ::1 at 2019-10-02 16:06:42 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}, "authenticity_token"=>"CQnvNe4YDkAJTGpkJk03WlR7Vz0Aodx3csVRSPMn09/j7Vb5CbjjNcK68y 5D6TqRsJLhQ8zP j5O1SxjvLnow=="}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 1862)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/users/new" for ::1 at 2019-10-02 16:08:40 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users/new"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:13:20 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.6ms | Allocations: 351)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 5009ms (Views: 5007.8ms | ActiveRecord: 0.0ms | Allocations: 1654813)
+
+
+Started POST "/api/users?&authenticity_token=qkrXxRidh70OtZdWKmS+4330pMIhzyLwCQFcGZ1T9v1Arm4J/z1qyMVDDh21Ji1Tb024ei5dwW+C/1ng4IbCgQ==" for 127.0.0.1 at 2019-10-02 16:13:32 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}, "authenticity_token"=>"qkrXxRidh70OtZdWKmS 4330pMIhzyLwCQFcGZ1T9v1Arm4J/z1qyMVDDh21Ji1Tb024ei5dwW C/1ng4IbCgQ=="}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 1862)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:14:38 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Bee_Rad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 978)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:16:14 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 14505)
+
+
+Started POST "/api/users?&authenticity_token=aM4aQGPeTBzLNRv7FXrEYQald70zOVMi0lwR+SFIF1qCKqOMhH6haQDDgrCKOFfRFBxrBTyrsL1ZohQAXJ0jJg==" for 127.0.0.1 at 2019-10-02 16:16:19 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}, "authenticity_token"=>"aM4aQGPeTBzLNRv7FXrEYQald70zOVMi0lwR SFIF1qCKqOMhH6haQDDgrCKOFfRFBxrBTyrsL1ZohQAXJ0jJg=="}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 1850)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:17:02 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Beef", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 976)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:22:59 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.5ms | Allocations: 351)
+[Webpacker] Compiling…
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:23:01 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 4678ms (Views: 4677.1ms | ActiveRecord: 0.0ms | Allocations: 1636694)
+
+
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3677ms (Views: 3676.2ms | ActiveRecord: 0.0ms | Allocations: 49780)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:23:09 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Beef", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 1047)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/users?&authenticity_token=rLbSGZYwtMflxzhdXdbrAHzYirRy3/ny5/XvmY8saxpGUmvVcZBZsi4xoRbClHiwbmGWDH1NGm1sC+pg8vlfZg==" for 127.0.0.1 at 2019-10-02 16:23:10 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}, "authenticity_token"=>"rLbSGZYwtMflxzhdXdbrAHzYirRy3/ny5/XvmY8saxpGUmvVcZBZsi4xoRbClHiwbmGWDH1NGm1sC pg8vlfZg=="}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 1793)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:24:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3691ms (Views: 3690.2ms | ActiveRecord: 0.0ms | Allocations: 16805)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:24:21 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Beef", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 1036)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:24:46 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling…
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:24:48 -0700
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 7214ms (Views: 7213.0ms | ActiveRecord: 0.0ms | Allocations: 16263)
+
+
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 7076ms (Views: 7075.1ms | ActiveRecord: 0.0ms | Allocations: 22058)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:25:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3670ms (Views: 3669.2ms | ActiveRecord: 0.0ms | Allocations: 17288)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:25:20 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Beef", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 994)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:25:51 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3561ms (Views: 3560.7ms | ActiveRecord: 0.0ms | Allocations: 16808)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:26:00 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Beef", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 1033)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:26:28 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 14486)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:26:36 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 14354)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:26:41 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Beef", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 1033)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:27:53 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Beefy", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 976)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:32:04 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 14478)
+
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:32:09 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 14350)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:32:26 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"FFFFFFFFFFF", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 1033)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:33:34 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 14474)
+
+
+Started POST "/api/users" for 127.0.0.1 at 2019-10-02 16:33:39 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"FFFFFFFFFFF", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "FFFFFFFFFFF"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "FFFFFFFFFFF"], ["password_digest", "$2a$12$quRDutmCt6F.zikxkMFkzuWx3qYgdAXuE4UVlr9Nx2whAuMYrG8NW"], ["session_token", "rpi39JWgaLcLTfPhv5BoGj6y"], ["created_at", "2019-10-02 23:33:39.338692"], ["updated_at", "2019-10-02 23:33:39.338692"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 0.3ms | Allocations: 86)
+  Rendered api/users/show.json.jbuilder (Duration: 0.9ms | Allocations: 455)
+Completed 201 Created in 287ms (Views: 3.0ms | ActiveRecord: 9.7ms | Allocations: 11740)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 16:35:58 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"FFFFFFFFFFF", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 937)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:36:55 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 14474)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 16:37:25 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"FFFFFFFFFFF", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "FFFFFFFFFFF"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "FFFFFFFFFFF"], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "CkQanrjNVkS4adJ3abNqiVMn"], ["updated_at", "2019-10-02 23:37:25.372711"], ["id", 12]]
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:13:in `log_in'
+  Rendering api/sessions/create.json.jbuilder
+  Rendered api/sessions/create.json.jbuilder (Duration: 3.4ms | Allocations: 3520)
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 6.8ms | Allocations: 13955)
+
+
+
+ActionView::MissingTemplate - Missing partial api/users/_users with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/views/api/sessions/create.json.jbuilder:1
+  app/controllers/api/sessions_controller.rb:7:in `create'
+
+Started POST "/api/users?&authenticity_token=vkkeTdV520BG1uxVAKXN1I028s/XJX0fylb25W2EbYlUraeBMtk2NY0gdR6f515kn4/ud9i3noBBqPMcEFFZ9Q==" for 127.0.0.1 at 2019-10-02 16:44:47 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}, "authenticity_token"=>"vkkeTdV520BG1uxVAKXN1I028s/XJX0fylb25W2EbYlUraeBMtk2NY0gdR6f515kn4/ud9i3noBBqPMcEFFZ9Q=="}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+Completed 422 Unprocessable Entity in 1375ms (Views: 0.3ms | ActiveRecord: 4.8ms | Allocations: 785776)
+
+
+Started POST "/api/users?&authenticity_token=vkkeTdV520BG1uxVAKXN1I028s/XJX0fylb25W2EbYlUraeBMtk2NY0gdR6f515kn4/ud9i3noBBqPMcEFFZ9Q==" for 127.0.0.1 at 2019-10-02 16:45:04 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"test", "password"=>"[FILTERED]"}, "authenticity_token"=>"vkkeTdV520BG1uxVAKXN1I028s/XJX0fylb25W2EbYlUraeBMtk2NY0gdR6f515kn4/ud9i3noBBqPMcEFFZ9Q=="}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test"], ["password_digest", "$2a$12$9nwoJS1lbYGkX31uCO/PzuXb/PbFGzdREY6OiT.ra7Y32WL2zMPjy"], ["session_token", "jS2uHMFPMYsNE9deVgRrAaQZ"], ["created_at", "2019-10-02 23:45:04.488367"], ["updated_at", "2019-10-02 23:45:04.488367"]]
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:31:in `create'
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 0.2ms | Allocations: 86)
+  Rendered api/users/show.json.jbuilder (Duration: 1.2ms | Allocations: 712)
+Completed 201 Created in 253ms (Views: 5.2ms | ActiveRecord: 2.4ms | Allocations: 9927)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 16:45:36 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test"], ["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "mkK7j8Cypv3dwfNQj4HPabrb"], ["updated_at", "2019-10-02 23:45:37.233679"], ["id", 13]]
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  Rendering api/sessions/create.json.jbuilder
+  Rendered api/sessions/create.json.jbuilder (Duration: 2.5ms | Allocations: 3478)
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 2.7ms | Allocations: 8969)
+
+
+
+ActionView::MissingTemplate - Missing partial api/users/_users with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actiontext-6.0.0/app/views"
+  * "/home/bee/.gem/ruby/2.5.0/gems/actionmailbox-6.0.0/app/views"
+:
+  app/views/api/sessions/create.json.jbuilder:1
+  app/controllers/api/sessions_controller.rb:7:in `create'
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 16:47:18 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 295ms (ActiveRecord: 0.0ms | Allocations: 131017)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for 127.0.0.1 at 2019-10-02 16:48:47 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.6ms | Allocations: 95)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 4653ms (Views: 4652.5ms | ActiveRecord: 0.0ms | Allocations: 1620977)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 16:49:00 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test"], ["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "SGgAgndpFVTLfKiniVKAGhGq"], ["updated_at", "2019-10-02 23:49:01.021614"], ["id", 13]]
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  Rendering api/sessions/create.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 1084.0ms | Allocations: 431022)
+  Rendered api/sessions/create.json.jbuilder (Duration: 1084.7ms | Allocations: 431343)
+Completed 500 Internal Server Error in 1367ms (ActiveRecord: 8.0ms | Allocations: 442485)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x00007fd047009d48>:0x00007fd046ffb478>
+Did you mean?  @user:
+  app/views/api/users/_user.json.jbuilder:1
+  app/views/api/sessions/create.json.jbuilder:1
+  app/controllers/api/sessions_controller.rb:7:in `create'
+
+Started POST "/api/session" for 127.0.0.1 at 2019-10-02 16:52:11 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test"], ["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "smxsa48dfopjuMhY7jYnsJaU"], ["updated_at", "2019-10-02 23:52:11.977573"], ["id", 13]]
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:17:in `log_in'
+  Rendering api/sessions/create.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (Duration: 0.2ms | Allocations: 81)
+  Rendered api/sessions/create.json.jbuilder (Duration: 1.1ms | Allocations: 438)
+Completed 201 Created in 251ms (Views: 3.5ms | ActiveRecord: 2.9ms | Allocations: 6240)
+
+
+Started GET "/" for ::1 at 2019-10-02 17:46:31 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.5ms | Allocations: 351)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 7710ms (Views: 7708.3ms | ActiveRecord: 0.0ms | Allocations: 1621079)
+
+
+Started GET "/" for ::1 at 2019-10-02 17:47:05 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 7306ms (Views: 7305.7ms | ActiveRecord: 0.0ms | Allocations: 15116)
+
+
+Started GET "/" for ::1 at 2019-10-02 17:47:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 6906ms (Views: 6906.0ms | ActiveRecord: 0.0ms | Allocations: 14993)
+
+
+Started GET "/" for ::1 at 2019-10-02 17:49:48 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 6958ms (Views: 6957.3ms | ActiveRecord: 0.0ms | Allocations: 15116)
+
+
+Started GET "/" for ::1 at 2019-10-02 17:50:15 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 7023ms (Views: 7023.0ms | ActiveRecord: 0.0ms | Allocations: 15164)
+
+
+Started GET "/" for ::1 at 2019-10-02 17:50:48 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/bee/appaccademy/aA-Classwork/W14D3/bench_bnb/public/packs
+Completed 200 OK in 3639ms (Views: 3638.5ms | ActiveRecord: 0.0ms | Allocations: 16807)
+
+
