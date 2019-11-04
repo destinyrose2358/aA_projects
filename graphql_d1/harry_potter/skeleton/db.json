@@ -1,12 +1,6 @@
 {
   "wizards": [
     {
-      "id": 1,
-      "name": "Harry Potter",
-      "houseId": 1,
-      "patronusId": 3
-    },
-    {
       "id": 2,
       "name": "Albus Dumbledore",
       "houseId": 1,
@@ -73,12 +67,6 @@
       "patronusId": 4
     },
     {
-      "id": 13,
-      "name": "Newton Scamander",
-      "houseId": 3,
-      "patronusId": 9
-    },
-    {
       "id": 14,
       "name": "James Potter",
       "houseId": 1,
@@ -113,6 +101,24 @@
       "houseId": 2,
       "patronusId": 9,
       "id": 19
+    },
+    {
+      "name": "SNP",
+      "houseId": 3,
+      "patronusId": 9,
+      "id": 20
+    },
+    {
+      "name": "???",
+      "houseId": 1,
+      "patronusId": 2,
+      "id": 21
+    },
+    {
+      "name": "asdf",
+      "houseId": 3,
+      "patronusId": 4,
+      "id": 22
     }
   ],
   "houses": [
@@ -182,20 +188,6 @@
       "core": "Unicorn hair"
     },
     {
-      "id": 6,
-      "wizardId": 1,
-      "wood": "Holly",
-      "length": "11 in.",
-      "core": "Phoenix feather"
-    },
-    {
-      "id": 7,
-      "wizardId": 1,
-      "wood": "Blackthorn",
-      "length": "10 in.",
-      "core": "Unknown"
-    },
-    {
       "id": 8,
       "wizardId": 4,
       "wood": "Vine",
@@ -247,13 +239,6 @@
     {
       "id": 15,
       "wizardId": 12,
-      "wood": "Unknown",
-      "length": "Unknown",
-      "core": "Unknown"
-    },
-    {
-      "id": 16,
-      "wizardId": 13,
       "wood": "Unknown",
       "length": "Unknown",
       "core": "Unknown"
