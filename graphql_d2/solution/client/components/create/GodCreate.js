@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Mutation } from "react-apollo";
 
 import Mutations from "../../graphql/mutations";
@@ -7,7 +7,7 @@ const { NEW_GOD } = Mutations;
 import Queries from "../../graphql/queries";
 const { FETCH_GODS } = Queries;
 
-export default class GodCreate extends Component {
+export default class GodCreate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +39,6 @@ export default class GodCreate extends Component {
       }
     })
       .then(data => {
-        console.log(data);
         this.setState({
           message: `New god "${name}" created successfully`,
           name: "",

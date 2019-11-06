@@ -11,7 +11,7 @@ export default {
     }
   `,
   FETCH_ABODE: gql`
-    query FetchAbode($id: String) {
+    query FetchAbode($id: ID!) {
       abode(id: $id) {
         id
         name
@@ -36,7 +36,7 @@ export default {
     }
   `,
   FETCH_GOD: gql`
-    query FetchGod($id: String) {
+    query FetchGod($id: ID!) {
       god(id: $id) {
         id
         name
@@ -67,7 +67,7 @@ export default {
     }
   `,
   FETCH_PARENTS: gql`
-    query FetchParents($id: String) {
+    query FetchParents($id: ID!) {
       god(id: $id) {
         parents {
           id
@@ -77,7 +77,7 @@ export default {
     }
   `,
   FETCH_SIBLINGS: gql`
-    query FetchSiblings($id: String) {
+    query FetchSiblings($id: ID!) {
       god(id: $id) {
         siblings {
           id
@@ -87,7 +87,7 @@ export default {
     }
   `,
   FETCH_CHILDREN: gql`
-    query FetchChildren($id: String) {
+    query FetchChildren($id: ID!) {
       god(id: $id) {
         children {
           id

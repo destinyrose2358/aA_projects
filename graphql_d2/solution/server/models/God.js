@@ -176,7 +176,7 @@ GodSchema.statics.addDomain = (godId, domain) => {
   return God.findById(godId).then(god => {
     god.domains.push(domain);
 
-    god.save().then(god => god);
+    return god.save().then(god => god);
   });
 };
 
@@ -190,7 +190,7 @@ GodSchema.statics.removeDomain = (godId, domain) => {
       }
     });
 
-    god.save().then(god => god);
+    return god.save().then(god => god);
   });
 };
 
