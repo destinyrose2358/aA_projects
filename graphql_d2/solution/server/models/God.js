@@ -128,8 +128,8 @@ GodSchema.statics.updateAbode = (godId, abodeId) => {
       });
     }
     return Abode.findById(abodeId).then(newAbode => {
-      god.abode = newAbode;
-      newAbode.gods.push(god);
+      god.abode = newAbode.id;
+      newAbode.gods.push(god.id);
 
       return Promise.all([god.save(), newAbode.save()]).then(
         ([god, newAbode]) => god
