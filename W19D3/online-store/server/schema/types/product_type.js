@@ -4,6 +4,7 @@ const {
   GraphQLString,
   GraphQLObjectType,
   GraphQLFloat,
+  GraphQLInt,
   GraphQLID
 } = graphql;
 const Category = mongoose.model("category");
@@ -22,7 +23,7 @@ const ProductType = new GraphQLObjectType({
       }
     },
     description: { type: GraphQLString },
-    weight: { type: GraphQLFloat }
+    weight: { type: GraphQLInt }
   })
 });
 
